@@ -1,6 +1,6 @@
 # XQuery & IRs
 ## Institutional Repository (IR)
-* Open Access online collection of the university community's digital content. Aim at archiving faculty scholorship in an open access fashion as well as student work and community publications (e.g. newsletters, newspapers/magazines, podcasts, and other media).
+* Open Access online collection of the university community's digital content. Aim at archiving faculty scholarship in an open access fashion as well as student work and community publications (e.g. newsletters, newspapers/magazines, podcasts, and other media).
 
 * [DiscoverArchive](http://discoverarchive.vanderbilt.edu), Vanderbilt University's IR.
 
@@ -9,7 +9,13 @@
   * [OASIS: Open Access Scholarly Information Sourcebook](www.openoasis.org/)
   * [Budhapest Open Access Inititative - BOAI](http://en.wikipedia.org/wiki/Budapest_Open_Access_Initiative)
 
- 
+## DSpace
+* Open Source IR solution
+* all data managed by SQL db (postgres
+* spits out XML here and there
+  * OAI-PMH - expose metadata records
+  * XMLUI - interface based on XML views transformed to HTML via XSLT
+
 ## IR Workflow
 * identify faculty scholarship (journal articles)
 * collect bib records (normalize? metadata)
@@ -27,27 +33,29 @@
 ## Tracking Permissions
 * track individual publications/articles
   * export MODS records from Zotero
-    * example
+    * example: NewClearedList-MODS.xml
 * add permissions data to bib records (MODS+Permissions)
   * create namespace and element set to express permissions data if there are no suitable MODS elements
 * Permissions data elements
-  * -
-  * -
-  * -
-  * -
+  * Publisher
+  * Journal Title
+  * Clearance - (Y/N)
+  * Version (P,P,orP)
+  * Embargo
+  * Blanket Permission (Y/N)
+  * Conditions
 * store bib records in eXist-db
 * use database to track permissions for individual items
 * use XQuery to query collection
   * view articles cleared for deposit
   * other administrative views 
 
-
 ## Bibliography Service
 * artifact of IR workflow is collection of faculty bibliographies (see bib records above)
 * use XQuery to transform bib records
   * what form do I need to put the bibliographies on the web?
   * library website
-  * vanderbilt faculty website
+  * Vanderbilt faculty website
   * give to faculty for use on personal site
   * what else?
 * transform to document - PDF?
@@ -57,9 +65,10 @@
   * csv for batch import
 * pull XML data about existing content items in IR
   * OAI-PMH
-    * METS example
+     * LawFacultyOAIMets_2014-02-19.xml
+     * ReturnMods.xquery
   * scrape repository pages (download stats)
-    * download count example
+    * download count example - ExtractDownloadCount.xquery
   * SOLR?
 * use XQuery to compile information about them
   * usage report example
